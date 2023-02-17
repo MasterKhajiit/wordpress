@@ -163,12 +163,12 @@ Start-Sleep -s 5
 "Done."
 
 "Configure PHP with IIS ..."
-
 # Add the PHP Manager PowerShell Snap-In
 Add-PsSnapin -Name PHPManagerSnapin
 
 # Register PHP with Internet Information Services (IIS)
 New-PHPVersion "$PHP_PATH\php-cgi.exe"
+"Done."
 
 <#
 ================================== WordPress ===================================
@@ -237,11 +237,6 @@ Copy-Item -Path "$WORDPRESS_PATH\wp-config-sample.php" -Destination "$WORDPRESS_
 (Get-Content -Path $WORDPRESS_PATH\wp-config.php).Replace("define( 'DB_NAME', 'database_name_here' )","define( 'DB_NAME', '$MYSQL_DB_NAME' )")| Set-Content -Path $WORDPRESS_PATH\wp-config.php | Out-Null
 (Get-Content -Path $WORDPRESS_PATH\wp-config.php).Replace("define( 'DB_USER', 'username_here' )","define( 'DB_USER', '$MYSQL_USER' )")| Set-Content -Path $WORDPRESS_PATH\wp-config.php | Out-Null
 (Get-Content -Path $WORDPRESS_PATH\wp-config.php).Replace("define( 'DB_PASSWORD', 'password_here' )","define( 'DB_PASSWORD', '$MYSQL_WORD_PWD' )")| Set-Content -Path $WORDPRESS_PATH\wp-config.php | Out-Null
-
-
-#Generation unique authentication keys and salts.
-#Invoke-WebRequest "https://api.wordpress.org/secret-key/1.1/salt/" | Add-Content -Path $WORDPRESS_PATH\wp-config.php
-
 "Done."
 
 <#
