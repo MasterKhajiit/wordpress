@@ -1,5 +1,5 @@
 # wordpress
-[info]
+[Info]
 Wordpress deploying scripts for Windows, Linux
 
 [Windows]
