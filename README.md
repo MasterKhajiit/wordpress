@@ -1,4 +1,3 @@
-# Deploying wordpress
 ## [Info]
 Wordpress deploying scripts for Windows, Linux
 
